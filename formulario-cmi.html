@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Solicite um Orçamento</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    .orcamento-form {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+        font-family: 'Poppins', Arial, sans-serif;
+        max-width: 540px;
+        min-width: 220px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        /* Removido max-height e overflow-y para evitar scrollbar */
+    }
+    .orcamento-form h2 {
+        color: #222;
+        text-align: center;
+        margin-bottom: 18px;
+        font-size: 1.3rem;
+        max-width: 100%;
+    }
+    .orcamento-form label {
+        font-weight: 500;
+        
+        display: block;
+        font-size: 0.85rem;
+        max-width: 100%;
+        word-break: break-word;
+    }
+    .orcamento-form select,
+    .orcamento-form input {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 12px 14px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 0.98em;
+        margin-bottom: 8px;
+        background: #f7f7f7;
+        color: #222;
+        transition: border 0.2s;
+    }
+    .orcamento-form input:focus,
+    .orcamento-form select:focus {
+        border: 1.5px solid #25D366;
+        outline: none;
+    }
+    .orcamento-form button {
+        background: #25D366;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 12px 0;
+        font-size: 0.98em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+        margin-top: 8px;
+        max-width: 100%;
+    }
+    .orcamento-form button:hover {
+        background: #1ebc59;
+    }
+    .msg-sucesso {
+        color: #218838;
+        text-align: center;
+        margin-top: 18px;
+        font-weight: 600;
+    }
+    .msg-erro {
+        color: #c82333;
+        text-align: center;
+        margin-top: 18px;
+        font-weight: 600;
+    }
+
+    /* Responsivo para formulário dentro do iframe */
+    @media (max-width: 600px) {
+        .orcamento-form {
+            max-width: 99vw;
+            min-width: 0;
+            padding: 10px 2vw;
+            /* Removido max-height */
+        }
+        .orcamento-form label
+         {
+            font-size: 0.85rem;
+        }
+        .orcamento-form button {
+            font-size: 0.92em;
+            padding: 10px 0;
+        }
+    }
+    @media (max-width: 400px) {
+        .orcamento-form {
+            padding: 6px 1vw;
+            /* Removido max-height */
+        }
+        .orcamento-form label
+         {
+            font-size: 0.8rem;
+        }
+        .orcamento-form button {
+            font-size: 0.75em;
+            padding: 8px 0;
+        }
+    }
+    </style>
+</head>
+<body>
+    <form class="orcamento-form" id="orcamentoForm" autocomplete="off" method="POST" action="enviar-orcamento.php">
+        <h2>Solicite um Orçamento</h2>
+        <label for="nome">Seu nome:</label>
+        <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+        <label for="email">Seu e-mail:</label>
+        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+        <label for="telefone">Telefone para contato:</label>
+        <input type="tel" id="telefone" name="telefone" required placeholder="(xx) xxxxx-xxxx">
+        <label for="opcao">Selecione o serviço desejado:</label>
+        <select id="opcao" name="opcao" required>
+            <option value="" disabled selected>Escolha uma opção</option>
+            <option value="Alarme">Alarme</option>
+            <option value="Manutenção Preventiva">Manutenção Preventiva</option>
+            <option value="Portaria Eletrônica">Portaria Eletrônica</option>
+        </select>
+        <button type="submit">Solicitar Orçamento</button>
+        <div id="msgRetorno"></div>
+    </form>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('orcamentoForm');
+        var msgRetorno = document.getElementById('msgRetorno');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                msgRetorno.textContent = '';
+                var formData = new FormData(form);
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'enviar-orcamento.php', true);
+                xhr.onload = function() {
+                    if (xhr.status === 200 && xhr.responseText.trim() === 'OK') {
+                        msgRetorno.textContent = "Solicitação enviada com sucesso!";
+                        msgRetorno.className = "msg-sucesso";
+                        form.reset();
+                    } else {
+                        msgRetorno.textContent = "Erro ao enviar. Tente novamente.";
+                        msgRetorno.className = "msg-erro";
+                    }
+                };
+                xhr.onerror = function() {
+                    msgRetorno.textContent = "Erro de conexão. Tente novamente.";
+                    msgRetorno.className = "msg-erro";
+                };
+                xhr.send(formData);
+            });
+        }
+    });
+    </script>
+</body>
+</html>
+</body>
+</html>
