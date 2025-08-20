@@ -280,18 +280,24 @@
   }
   footer {
     width: 100%;
-    background: var(--solar-white);
+    background-color: rgb(253, 255, 246);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: var(--solar-black);
   }
   footer .footer-content {
-    background-color: var(--solar-white);
+   background: rgb(253, 255, 246);
     display: flex;
     justify-content: space-around;
     padding: 3rem 3.5rem;
+    width: 100%;
+    max-width: 1000px;
   }
   footer .footer-content #footer-contacts {
-    color: #fff;
+    color: var(--solar-orange);
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: space-around;
   }
@@ -303,6 +309,7 @@
     padding-top: 15px;
     gap: 0.5rem;
     align-items: center;
+    justify-content: center;
   
   }
   footer .footer-content #footer-contacts .footer-email .fa-envelope {
@@ -317,8 +324,9 @@
   }
   footer .footer-content #footer-social-media {
     display: flex;
+    align-items: center ;
     gap: 2rem;
-    margin-top: 1.5rem;
+    justify-content: center;
   }
   footer .footer-content #footer-social-media .footer-link {
     height: 2.5rem;
@@ -326,7 +334,7 @@
     border-radius: 50%;
   }
   footer .footer-content #footer-social-media .footer-link i {
-    color: var(--solar-yellow);
+    color: var(--solar-orange);
   }
   footer .footer-content #footer-social-media .footer-link i:hover {
     color: var(--solar-orange);
@@ -351,6 +359,14 @@
   footer .footer-content .footer-logo img {
     max-width: 200px;
   }
+
+  .footer-bottom {
+    text-align: center;
+    padding: 0 3.6rem;
+    background:  rgb(253, 255, 246);
+    color: var(--solar-orange);
+  }
+
   .clients-section {
     display: flex;
     flex-direction: row;
@@ -435,15 +451,15 @@
       .hero-title{
           font-size: 2.8rem;
       }
+    /* .footer-content .footer-logo {
+      display: none;
+    } */
+  }
+  /* @media screen and (max-width: 478px) {
     .footer-content .footer-logo {
       display: none;
     }
-  }
-  @media screen and (max-width: 478px) {
-    .footer-content .footer-logo {
-      display: none;
-    }
-  }
+  } */
   @media screen and (max-width: 768px) {
     .cmimage{
       max-width: 250px;
@@ -470,6 +486,24 @@
     z-index: 1000;
     animation: pulse 3s infinite;
     text-decoration: none;
+}
+@media screen and (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 10px;
+        right: 10px;
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .whatsapp-float {
+        bottom: 10px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
+        font-size: 27px;
+    }
 }
 
 @keyframes pulse {
@@ -544,7 +578,7 @@
 
 /* Calculadora CMI */
 #calculadora-cmi {
-    background: var(--solar-white);
+    background: #f8faf7;
     padding: 32px 0;
 }
 #calculadora-cmi .container {
@@ -640,7 +674,7 @@
 }
 .cta-button-cmi {
     display: inline-block;
-    background: var(--solar-blue);
+    background: #25D366;
     color: #fff;
     font-weight: 600;
     border-radius: 50px;
@@ -974,11 +1008,13 @@
     text-align: center;
 }
 .porque-escolher-title {
-    color: #7bc043;
-    font-size: 2.5rem;
+    color: #2347f1;
+    font-size: 1.7rem;
     font-weight: 700;
-    margin-bottom: 18px;
+    
+    margin-bottom: 10px;
 }
+
 .porque-escolher-title .destaque-verde {
     color: #7bc043;
 }
@@ -1031,13 +1067,7 @@
     color: #7bc043;
     margin-bottom: 18px;
 }
-.porque-escolher-title {
-    color: #2347f1;
-    font-size: 1.25rem;
-    font-weight: 500;
-    font-style: italic;
-    margin-bottom: 10px;
-}
+
 .porque-escolher-conteudo {
     background: #fff;
 
@@ -1092,6 +1122,27 @@
         height: auto;
         border-radius: 24px;
         padding: 24px 10px;
+    }
+    .porque-escolher-title {
+    color: #2347f1;
+    font-size: 1.7rem;
+    font-weight: 700;
+    
+    margin-bottom: 10px;
+    }
+
+    .porque-escolher-title .destaque-verde {
+      color: #7bc043;
+    }
+    .porque-escolher-subtitle {
+        color: #888;
+        font-size: 0.95rem;
+       
+        line-height: 1.4;
+    }
+    .porque-escolher-destaque {
+       
+        font-size: 1rem;
     }
 }
 #cta-economia-real {
@@ -1291,6 +1342,13 @@
     .olx-cta-icon {
         margin-bottom: 8px;
     }
+    .olx-cta-content h2 { 
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    .olx-cta-content p {
+        font-size: 1rem; 
+    }
 }
 /* Comparativo Ongrid vs Offgrid */
 #comparativo-solar {
@@ -1340,7 +1398,7 @@
     flex-wrap: wrap;
 }
 .comparativo-card {
-    background: #fff;
+    background: #dee6d9;
     border-radius: 22px;
     box-shadow: 0 4px 24px rgba(36,71,241,0.08), 0 1.5px 8px rgba(123,192,67,0.07);
     padding: 38px 28px 28px 28px;
@@ -1350,7 +1408,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 60px;
+    margin-top: 80px;
     transition: box-shadow 0.2s;
 }
 .comparativo-card:hover {
@@ -1390,15 +1448,20 @@
     color: #232323;
     font-size: 1.05rem;
     
-    background: #f8faf7;
+    
     border-radius: 10px;
     padding: 10px 14px;
     font-weight: 500;
-    box-shadow: 0 1px 4px rgba(36,71,241,0.04);
+    
 }
 .comparativo-beneficios li i {
     color: #7bc043;
     font-size: 1.2em;
+    min-width: 22px;
+}
+.comparativo-beneficios li span {
+    color: #2347f1;;
+    font-size: 1rem;
     min-width: 22px;
 }
 .destaque-amarelo {
@@ -1458,7 +1521,7 @@
         padding: 22px 6vw 18px 6vw;
     }
     .comparativo-img {
-        max-width: 120px;
+        max-width: 320px;
     }
     .comparativo-cta {
         margin: 32px 0 0 0;
@@ -1467,7 +1530,20 @@
         font-size: 1rem;
         padding: 13px 18px;
     }
+    .comparativo-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 12px;   
+    }
+    .comparativo-card p {
+        font-size: 0.95rem;
+        margin-bottom: 0px;
+    }
+    .comparativo-card li {
+        font-size: 0.95rem;
+        margin-bottom: 0px;
+    }
 }
+
 
 /* cta-comparativo-sistemas com visual igual ao bloco de economia real */
 #cta-comparativo-sistemas {
@@ -1516,13 +1592,22 @@
 }
 @media (max-width: 1300px) {
 .cta-comparativo-grid {
-    
-    flex-wrap: wrap;
-    
-  
+    flex-wrap: wrap;  
 }
 }
 
+@media (max-width: 500px) {
+    .cta-comparativo-header h2 {
+        font-size: 2rem;
+        margin-bottom: 12px;
+    }
+    .cta-comparativo-header p {
+        font-size: 1rem; 
+    }
+    .cta-comparativo-header {
+        margin-bottom: 15px;
+    }
+}
 .cta-comparativo-col {
     background: #fff;
     border-radius: 18px;
@@ -1564,7 +1649,7 @@
     max-width: 250px;
     color: #232323;
     font-size: 1.05rem;
-    background: #f8faf7;
+    background: #ffffff;
     border-radius: 10px;
     padding: 12px 14px;
     font-weight: 500;
@@ -1576,6 +1661,24 @@
     min-width: 32px;
     margin-top: 2px;
 }
+
+@media screen and (max-width: 600px) {
+    .cta-comparativo-list {
+    gap: 9px;
+    margin-bottom: 9px;
+   
+}
+.cta-comparativo-item {
+    gap: 7px;
+    font-size: 1rem;
+    border-radius: 5px;
+    padding: 6px 7px;
+}
+.cta-comparativo-icon {
+    font-size: 1.45em;
+}
+}
+
 .cta-comparativo-col.cta-comparativo-offgrid .cta-comparativo-icon {
     color: #7bc043;
 }
@@ -1728,13 +1831,72 @@
     .carousel-track, .carousel-img {
         width: 90vw;
         max-width: 98vw;
-        height: 140px;
+        height: 340px;
     }
     .carousel-btn {
         width: 38px;
         height: 38px;
         font-size: 1.3rem;
-        left: 4px;
-        right: 4px;
+        
+    }
+}
+.olx-produtos-lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 32px;
+    margin: 18px auto 18px auto;
+    padding: 0;
+    max-width: 600px;
+    list-style: none;
+}
+.olx-produtos-lista li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #f8faf7;
+    color: #2347f1;
+    font-weight: 500;
+    font-size: 1.07rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(36,71,241,0.07);
+    margin: 7px 10px 7px 0;
+    padding: 8px 18px 8px 38px;
+    position: relative;
+    min-width: 210px;
+    flex: 1 1 220px;
+    max-width: 270px;
+    transition: background 0.2s, color 0.2s;
+    border-left: 5px solid #ff6600;
+    text-align: left;
+}
+.olx-produtos-lista li:before {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #ff6600;
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1em;
+}
+.olx-produtos-lista li:hover {
+    background: #fffbf4;
+    color: #ff6600;
+    border-left: 5px solid #2347f1;
+}
+@media (max-width: 700px) {
+    .olx-produtos-lista {
+        flex-direction: column;
+        gap: 0;
+        max-width: 99vw;
+    }
+    .olx-produtos-lista li {
+        min-width: 0;
+        max-width: 99vw;
+        margin: 7px 0;
+        font-size: 1rem;
+        max-height: 25px;
     }
 }

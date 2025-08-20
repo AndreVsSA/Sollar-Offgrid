@@ -32,9 +32,8 @@ Você recebeu um novo pedido de orçamento através do formulário do site.
 👤 Nome do Cliente: {$nome}
 📧 E-mail do Cliente: {$email}
 📞 Telefone: {$telefone}
-🛠️ Tipo de Serviço: {$opcao}
-
-
+📝 Descrição do Serviço:
+{$opcao}
 
 Atenciosamente,
 {$nome_site}
@@ -71,4 +70,5 @@ if ($result) {
     http_response_code(500);
     echo "ERRO";
 }
+?>
 ?>
