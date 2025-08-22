@@ -141,37 +141,92 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: stretch;
-    gap: 20px;
+    gap: 28px;
     margin-top: 50px;
   }
   
   .testimonial {
-    background: var(--solar-white);
-    color: var(--solar-black);
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 350px;
-    min-width: 280px;
-    min-height: 260px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    font-style: italic;
+    background: #fff;
+    color: #232323;
+    padding: 28px 24px 22px 24px;
+    border-radius: 18px;
+    max-width: 370px;
+    min-width: 260px;
+    min-height: 220px;
+    box-shadow: 0 4px 18px rgba(60, 64, 67, 0.13);
+    font-style: normal;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    flex: 1 1 320px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    border: 1.5px solid #e6e6e6;
+    transition: box-shadow 0.2s, border 0.2s;
   }
-  
+  .testimonial:hover {
+    box-shadow: 0 8px 32px rgba(60, 64, 67, 0.18);
+    border: 1.5px solid #ffd600;
+  }
+  .testimonial::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 32px;
+    height: 32px;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png') no-repeat center/cover;
+    border-radius: 50%;
+    opacity: 0.13;
+    z-index: 0;
+  }
+  .testimonial .testimonial-stars {
+    margin-bottom: 8px;
+    color: #ffd600;
+    font-size: 1.15rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
   .testimonial p {
     flex: 1 1 auto;
     margin-bottom: 10px;
+    font-size: 1.08rem;
+    color: #232323;
+    z-index: 1;
   }
-  
   .testimonial span {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 7px;
     margin-top: 10px;
     font-weight: 600;
-    color: var(--solar-orange);
+    color: #5f6368;
+    font-size: 1.01rem;
+    z-index: 1;
   }
+  .testimonial .testimonial-google-icon {
+    color: #4285F4;
+    font-size: 1.2em;
+    margin-right: 2px;
+  }
+  @media (max-width: 900px) {
+    .carousel {
+        gap: 18px;
+    }
+    .testimonial {
+        max-width: 98vw;
+        min-width: 0;
+        padding: 18px 8px 14px 8px;
+    }
+}
+@media (max-width: 600px) {
+    .testimonial {
+        padding: 12px 4vw 10px 4vw;
+        font-size: 0.98rem;
+    }
+}
   
   /* Preços */
   .pricing-table {
@@ -1781,15 +1836,14 @@
 .carousel-track {
     width: 500px;
     height: 320px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    display: block;
     position: relative;
     border-radius: 14px;
     background: #eaeaea;
+    overflow: hidden;
 }
 .carousel-img {
+    /* As propriedades de transição e posição são definidas via JS para garantir compatibilidade */
     width: 500px;
     height: 320px;
     object-fit: cover;
@@ -1814,7 +1868,7 @@
     justify-content: center;
     cursor: pointer;
     transition: background 0.2s;
-    z-index: 2;
+    z-index: 10;
     box-shadow: 0 2px 8px rgba(36,71,241,0.13);
 }
 .carousel-btn.prev {
